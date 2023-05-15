@@ -1,3 +1,4 @@
+//backend
 const express = require('express');
 const app = express()
 const http = require("http");
@@ -20,18 +21,16 @@ const io = new Server(server, {
 
 
 io.on("connection", (socket) => {
-    console.log(socket.id);
+    console.log(`user connected: ${socket.id}`);
 
     socket.on("disconnect", () => {
         console.log("user disconnected", socket.id);
     });
 
 });
-
-
+// listening for events
 server.listen(3001, () => {
     console.log("SERVER RUNNING");
-
 
 });
 
